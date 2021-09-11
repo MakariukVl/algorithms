@@ -11,17 +11,13 @@ function quickSort(array, compare) {
         return a - b;
     };
 
-    fillLeftRight(0, indexMid);
-    fillLeftRight(indexMid + 1, array.length);
+    for (let i = 0; i < array.length; i++) {
+        if (i === indexMid) continue;
+        if (cmp(mid, array[i]) > 0) left.push(array[i]);
+        else right.push(array[i]);
+    }
 
     return quickSort(left, cmp).concat(mid, quickSort(right, cmp));
-
-    function fillLeftRight(l, r) {
-        for (let i = l; i < r; i++) {
-            if (cmp(mid, array[i]) > 0) left.push(array[i]);
-            else right.push(array[i]);
-        }
-    }
 }
 
-export {quickSort};
+export { quickSort };
