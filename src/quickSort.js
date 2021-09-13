@@ -17,7 +17,12 @@ function quickSort(array, compare) {
         else right.push(array[i]);
     }
 
-    return quickSort(left, cmp).concat(mid, quickSort(right, cmp));
+    let result = [];
+    result.push(...quickSort(left, cmp));
+    result.push(mid);
+    result.push(...quickSort(right, cmp));
+
+    return result;
 }
 
 export { quickSort };
