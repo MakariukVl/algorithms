@@ -205,18 +205,18 @@ describe('Test suite for quickSort function', function () {
     it('#19. The quickSort function is called with Null. In this case, it should\n\tthrow a TypeError', function () {
         expect(quickSort.bind(null, null)).to.throw(TypeError);
     });
-    it('#. The quickSort function is called with NaN. In this case, it should\n\tthrow a TypeError', function () {
+    it('#20. The quickSort function is called with NaN. In this case, it should\n\tthrow a TypeError', function () {
         expect(quickSort.bind(null, NaN)).to.throw(TypeError);
     });
-    it('#. The quickSort function is called with []. In this case, it should\n\treturn []', function () {
+    it('#21. The quickSort function is called with []. In this case, it should\n\treturn []', function () {
         const arr = quickSort([]);
         expect(arr).to.deep.equal([]);
     });
-    it("#. The quickSort function is called with ''. In this case, it should\n\treturn ''", function () {
+    it("#22. The quickSort function is called with ''. In this case, it should\n\treturn ''", function () {
         const str = quickSort('');
         expect(str).to.deep.equal('');
     });
-    it('#. The quickSort function is called called for array with length 1. In\n\tthis case, it should return this array', function () {
+    it('#23. The quickSort function is called called for array with length 1. In\n\tthis case, it should return this array', function () {
         const arr = quickSort([5]);
         expect(arr).to.have.lengthOf(1);
         expect(arr).to.deep.equal([5]);
