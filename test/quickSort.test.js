@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
+// chai: https://github.com/chaijs/chai
 import chai from 'chai';
+// chaiArrays: https://github.com/GaneshSPatil/chai-arrays
 import chaiArrays from "chai-arrays";
 import { quickSort } from '../src/quickSort.js';
 
@@ -194,7 +196,8 @@ describe('Test suite for quickSort function', function () {
             { Name: 'Jack', Age: 70 },
             { Name: 'Sara', Age: 7 }
         ]);
-        expect(quickSort.bind(null, arr)).to.throw(TypeError);
+        // Bug - chai doesn't catch an error has thrown: https://github.com/chaijs/chai/issues/1414
+        expect(quickSort.bind(null, arr)).to.throw(TypeError); 
     });
     it('#17. The quickSort function is called without any attributes. In this\n\tcase, it should throw a TypeError', function () {
         expect(quickSort.bind(null)).to.throw(TypeError);

@@ -14,18 +14,8 @@ describe('Random tests for quickSort function', function () {
 
         it(`#${i + 1}. Random test for quickSort`, function () {
 
-            let input = [];
-            let length = Math.random().toString().slice(17) || 1;
-
-            let cmp = Math.random().toString().slice(18)
-                ? (a, b) => a - b
-                : (a, b) => b - a;
-
-            for (let j = 0; j < length; j++) {
-                let val = new Number(
-                    Math.random().toString().slice(16)) || 0;
-                input.push(val);
-            }
+            let input = randomArray();
+            let cmp = randomComparer();
 
             const arr = quickSort(input, cmp);
 
@@ -33,5 +23,24 @@ describe('Random tests for quickSort function', function () {
             expect(arr).to.have.all.members(input);
             expect(arr).to.be.sorted(cmp);
         });
+    }
+
+    function randomArray() {
+        let randomArr = [];
+        let length = Math.random().toString().slice(17) || 1;
+
+        for (let j = 0; j < length; j++) {
+            let val = new Number(
+                Math.random().toString().slice(16)) || 0;
+            randomArr.push(val);
+        }
+
+        return randomArr;
+    }
+
+    function randomComparer() {
+        return Number(Math.random().toString().slice(16)) % 2 === 0
+            ? (a, b) => a - b
+            : (a, b) => b - a;
     }
 });
